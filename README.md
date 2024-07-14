@@ -37,3 +37,25 @@ kinds of input (see usage section below for examples):
     containing each sequence and CDR positions on a separate line.
 ```
 
+## Training
+change the config dictionary in the `main.py` and run it for trainning the results of cv will be at results folder
+
+```
+config = {
+    "embedding": ("berty", 512), # [("berty", 512), ("ab", 768), ("prot", 1024), ("onehot", 21), ("balm", 640), ("esm", 1280), ("ig", 1024)]
+    "input_type": "cdr",  # ["cdr", "chain"]
+    "max_len": 35,  # [35, 150]
+
+    "dataset": "parapred",  # ['nano', 'paragraph', 'parapred']
+    "method": "CNN",  # ['CNN', 'LSTM', 'Inception']
+    "positional": True,
+    "ablation": "MASK-POS-METHOD-FNN",  # ["MASK-FNN", "MASK-POS-FNN", "MASK-METHOD-FNN" , "MASK-POS-METHOD-FNN"]
+
+    "channel_size": 512,
+
+    "batch_size": 16,
+    "lr": 0.001,
+    "num_epochs": 30
+}
+```
+
