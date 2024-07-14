@@ -2,5 +2,38 @@
 
 The original implementation of methodology described in "ParaAntiProt: Paratope Prediction Using Antibody and Protein Language Models".
 
-you can the notebook for the usage and training model and more stuff.
+We would also like to point users to the original Github repo for the implementation of Parapred, based on Pytorch that we used their code to build this repo.
+
+## Install
+
+Requirements:
+   * Python 3.11+ 
+
+To install:
+   * Run `python setup.py install` in the root directory. If you are using a Python installation
+     manager, such as Anaconda or Canopy, follow their package installation instructions.
+   * If you do not wish to install and run Parapred directly from a clone of this repository instead,
+     install required packages using `pip install -r requirements.txt`.
+
+## Usage
+   * you can use the notebook for the prediction and training model and more stuff.
+   * If you choose to run ParaAntiProt directly, make sure you've installed required packages from
+     `requirements.txt`.
+
+```
+ParaAntiProt-Paratope-Prediction-Using-Antibody-and-Protein-Language-Models
+
+ParaAntiProt works on antibody's amino acid sequence. The program will output
+binding probability for every residue in the input. The program accepts two
+kinds of input (see usage section below for examples):
+
+(a) The full sequence of a VH or VL domain, or a larger stretch of the sequence
+    of either the heavy or light chain comprising the CDR loops.
+
+(b) An amino acid sequence corresponding to a CDR with 2 extra residues on
+    either side. and specifying which part does it blongs to, e.g. (ARSGYYGDSDWYFDVGG, L1)
+
+    Multiple CDR sequences can be processed at once by specifying a file,
+    containing each sequence and CDR positions on a separate line.
+```
 
