@@ -1,0 +1,4 @@
+#!/bin/sh
+#python scrape.py download_pdb
+python scrape.py download_annotate
+python scrape.py create_processed_dataset
