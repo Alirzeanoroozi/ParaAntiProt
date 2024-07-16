@@ -58,4 +58,5 @@ config = {
     "num_epochs": 30
 }
 ```
-
+## Important
+Notice that for training you need to create the embeddings and for using notebook downloading models from this [Link]([https://link-url-here.org](https://drive.google.com/drive/folders/1VLrZWGjaRMltkCYtiuIvAwGRIVrfCDYA?usp=sharing))
