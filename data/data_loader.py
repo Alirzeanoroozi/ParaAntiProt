@@ -15,19 +15,12 @@ def to_binary(input_list, max_len):
 
 
 def to_binary_N_P(input_list, max_len):
-    # print(input_list)
     input_list = input_list.replace("'", "").replace("\n", "").strip('[]').split(" ")
-    # print(input_list)
     return np.array([0. if c == 'N' else 1. for c in input_list] + [0. for _ in range(max_len - len(input_list))])
 
 
 def pad_position_list(position, max_len):
     return np.vstack((position, np.array([[0, 0, 0, 0, 0, 0, 0] for _ in range(max_len - len(position))])))
-
-
-def zero_position_list(max_len):
-    return np.array([[0, 0, 0, 0, 0, 0, 0] for _ in range(max_len)])
-
 
 
 def get_dataloaders(test_df, train_df, val_df, config):
@@ -61,8 +54,11 @@ def get_positions(train_df):
 
 
 def get_cv_dataloaders(config, cross_round):
-    # df = pd.read_csv("data/cdrs_paragraph.csv") if config['input_type'] == "cdr" else pd.read_csv("data/chains_paragraph.csv")
-    df = pd.read_csv("data/cdrs_parapred.csv") if config['input_type'] == "cdr" else pd.read_csv("data/chains_parapred.csv")
+    df = None
+    if config['dataset'] == 'paragraph':
+        df = pd.read_csv("data/cdrs_paragraph.csv") if config['input_type'] == "cdr" else pd.read_csv("data/chains_paragraph.csv")
+    elif config['dataset'] == 'parapred':
+        df = pd.read_csv("data/cdrs_parapred.csv") if config['input_type'] == "cdr" else pd.read_csv("data/chains_parapred.csv")
 
     df = df[check_all_zero(df['paratope'])]
     kf = KFold(n_splits=10, shuffle=True, random_state=42)
